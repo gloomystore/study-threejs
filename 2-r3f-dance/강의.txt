@@ -1,0 +1,12 @@
+//강의 준비
+npm i three @react-three/drei @react-three/fiber
+
+//간편한 구현 - gltf 사용하기 - glb파일을 간편하게 jsx로 만들기 (-o = -output)
+npx gltfjsx public/dancer.glb -o src/components/Dancer.jsx
+
+// post process
+npm i @react-three/postprocessing
+
+// react3cannon
+중력같은 기능을 쉽게 구현하게 해줌
+
