@@ -28,7 +28,13 @@ export default function MainCanvas() {
         }}
         scene={{ background: new Color('#000') }}
       >
-        <Physics>
+        <Physics
+          gravity={[0, -9, 0]}
+          defaultContactMaterial={{ // 특정 obj와 특정 obj가 충돌할 때, 따로 뭔가 설정하지 않으면 탄성력이 0.1, 마찰력이 1
+            restitution: 0.1, // 탄성력
+            friction: 1, // 마찰력
+          }}
+        >
           <Controls />
           <Lights />
           <Meshes />

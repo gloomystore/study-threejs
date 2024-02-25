@@ -17,8 +17,5 @@ module.exports = {
       'warn',
       { allowConstantExport: true },
     ],
-    'quotes': [2, 'single', { 'avoidEscape': true }],
-    'react/no-unknown-property': 0,
-    'no-unused-vars': 0,
   },
 }
