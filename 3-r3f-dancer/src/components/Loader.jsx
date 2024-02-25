@@ -2,7 +2,6 @@ import { useRecoilState } from "recoil"
 import { IsEnteredAtom } from "../stores"
 import { Html, useProgress } from "@react-three/drei"
 import styled, { keyframes } from "styled-components"
-import { useEffect } from "react"
 
 export default function Loader({ isCompleted }) {
   const [isEntered, setIsEntered] = useRecoilState(IsEnteredAtom)
