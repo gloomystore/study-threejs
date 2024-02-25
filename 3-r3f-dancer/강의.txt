@@ -1,3 +1,8 @@
+//프로젝트 생성
 npm create vite@latest 2-r3f-dancer -- --template react
 
-npm i three @react-three/fiver @react-three/drei recoil styled-components
+// 리코일, three 요소들 설치
+npm i three @react-three/fiber @react-three/drei recoil styled-components
+
+// gsap - 애니메이션을 쉽게 실행시켜주는
+npm i gsap
