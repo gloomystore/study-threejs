@@ -1,0 +1,3 @@
+ npm create vite@latest 01-instancing-and-merging -- --template react
+
+npm i three @react-three/fiber @react-three/drei
