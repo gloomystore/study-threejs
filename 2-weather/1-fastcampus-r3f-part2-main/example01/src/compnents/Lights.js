@@ -1,4 +1,5 @@
-import { useRef } from "react"
+import { useRef } from 'react'
+import { Environment } from '@react-three/drei'
 
 export function Lights(){
   const lightRef = useRef()
@@ -12,7 +13,9 @@ export function Lights(){
       />
       <ambientLight
         intensity={1}
-      />
+        color={'#fff'}
+      /> 
+      <Environment preset='forest' />
     </>
   )
 }

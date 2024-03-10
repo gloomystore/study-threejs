@@ -1,0 +1,11 @@
+//프로젝트 생성
+npm create vite@latest 2-r3f-dancer -- --template react
+
+// 리코일, three 요소들 설치
+npm i three @react-three/fiber @react-three/drei recoil styled-components
+
+// gsap - 애니메이션을 쉽게 실행시켜주는
+npm i gsap
+
+// ramer-motion-3d - <motion.mesh>와 같은 방법으로 애니메이션을 쉽게 실행시켜줌. gsap과 라이벌인듯
+npm i ramer-motion-3d
