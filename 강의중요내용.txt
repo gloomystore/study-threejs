@@ -44,3 +44,13 @@ Kinematic (운동)
 - 주인공 캐릭터. 물리법칙을 밥지 않고 내 의도에 의해서 움직임
 Dynamic (동적)
 - 공이나 상자같이 물리법칙 받는 애들
+
+
+// gltf 뽑아내기
+npx gltfjsx [Model.glb] [options]
+npx gltfjsx ./public/assets/models/car_taxi.glb
+
+npx gltfjsx ./public/assets/models/car_taxi.glb --o CarBody.jsx
+
+// 타입스크립트
+npx gltfjsx ./public/assets/models/car_taxi.glb --types

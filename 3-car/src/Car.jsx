@@ -8,6 +8,10 @@ import useVehicleControls from "./utils/useVehicleControls"
 import { Vector3 } from "three"
 import { useFrame } from "@react-three/fiber"
 import useFollowCam from "./utils/useFollowCam"
+import CarBody from "./components/CarBody"
+import { useGLTF } from "@react-three/drei"
+import Wheel from "./components/Wheel"
+// import { CarBody } from "./components/CarBody"
 
 export default function Car() {
   const { pivot } = useFollowCam()
@@ -22,11 +26,11 @@ export default function Car() {
     makeFollowCam()
   })
 
-  const chassiBodyValue = useControls('chassiBody', {
-    width: { value: 0.16, min: 0, max: 1 }, // 차체의 넓이 X
-    height: { value: 0.12, min: 0, max: 1 }, // 차체의 높이 Y
-    front: { value: 0.17 * 2, min: 0, max: 1 }, // 차체의 길이 Z
-  })
+  // const chassisBodyValue = useControls('chassiBody', {
+  //   width: { value: 0.33, min: 0, max: 1 }, // 차체의 넓이 X
+  //   height: { value: 0.32, min: 0, max: 1 }, // 차체의 높이 Y
+  //   front: { value: 0.23 * 2, min: 0, max: 1 }, // 차체의 길이 Z
+  // })
 
   const position = [0, 0.5, 0]
 
@@ -35,7 +39,7 @@ export default function Car() {
   width = 0.16
   height = 0.12
   front = 0.17
-  mass = 150 
+  mass = 150
   wheelRadius = 0.05
 
   const chassiBodyArgs = [width, height, front * 2]
@@ -70,19 +74,25 @@ export default function Car() {
   })
 
   useVehicleControls(vehicleApi, chassisBodyApi)
-
+  const { nodes, materials } = useGLTF('/assets/models/car_taxi.glb')
   return (
     <group ref={vehicleRef}>
       {/* 차체 */}
       <group ref={chassisBodyRef}>
           {/* 차체 body */}
-          <DummyCarBody {...chassiBodyValue} />
+          <CarBody nodes={nodes} materials={materials} />
       </group>
       {/* 바퀴 */}
-      <DummyWheel wheelRef={wheels[0]} radius={wheelRadius} />
+      {
+        wheels.map((e,i) => (
+          <Wheel key={'car' + i} nodes={nodes} materials={materials} wheelRef={e} radius={wheelRadius} leftSide={i === 2 || i === 0} />
+        ))
+      }
+      
+      {/* <DummyWheel wheelRef={wheels[0]} radius={wheelRadius} />
       <DummyWheel wheelRef={wheels[1]} radius={wheelRadius} />
       <DummyWheel wheelRef={wheels[2]} radius={wheelRadius} />
-      <DummyWheel wheelRef={wheels[3]} radius={wheelRadius} />
+      <DummyWheel wheelRef={wheels[3]} radius={wheelRadius} /> */}
     </group>
   )
 }
